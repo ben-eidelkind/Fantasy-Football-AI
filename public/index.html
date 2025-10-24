@@ -9,7 +9,17 @@
   <body>
     <header class="top-bar">
       <div class="brand">Fantasy Football AI</div>
-      <nav>
+      <button
+        id="nav-toggle"
+        class="icon-button"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+      >
+        <span aria-hidden="true">☰</span>
+      </button>
+      <nav id="primary-nav" aria-label="Primary" data-open="true">
         <button data-nav="onboarding">Onboarding</button>
         <button data-nav="dashboard">Dashboard</button>
         <button data-nav="trade-lab">Trade Lab</button>
