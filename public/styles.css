@@ -8,11 +8,14 @@ body {
   margin: 0;
   background: radial-gradient(circle at top, #1e293b, #0f172a 70%);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .top-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
   padding: 1rem 1.5rem;
   background: rgba(15, 23, 42, 0.85);
   backdrop-filter: blur(6px);
@@ -25,6 +28,24 @@ body {
   font-size: 1.2rem;
   letter-spacing: 0.05em;
 }
+.icon-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: auto;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(30, 41, 59, 0.75);
+  color: inherit;
+  cursor: pointer;
+}
+nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
 nav button,
 button {
   margin: 0.25rem;
@@ -35,6 +56,11 @@ button {
   color: inherit;
   cursor: pointer;
   transition: transform 120ms ease, background 120ms ease;
+}
+nav button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 button:hover,
 button:focus {
@@ -50,15 +76,18 @@ button.secondary {
   background: rgba(148, 163, 184, 0.2);
 }
 main#app {
+  flex: 1;
   padding: 2rem;
   display: grid;
   gap: 1.5rem;
+  width: min(960px, 100%);
+  margin: 0 auto 3rem;
 }
 .panel {
   background: rgba(15, 23, 42, 0.75);
   border: 1px solid rgba(148, 163, 184, 0.25);
   border-radius: 1.25rem;
-  padding: 1.5rem;
+  padding: clamp(1.25rem, 2vw + 1rem, 1.75rem);
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.4);
 }
 h1, h2, h3 {
@@ -131,7 +160,7 @@ input, select {
 #toast {
   position: fixed;
   bottom: 1.5rem;
-  right: 1.5rem;
+  right: clamp(1rem, 6vw, 2.5rem);
   padding: 0.75rem 1.25rem;
   border-radius: 999px;
   background: rgba(59, 130, 246, 0.85);
@@ -163,16 +192,66 @@ input, select {
 }
 @media (max-width: 768px) {
   .top-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+  .icon-button {
+    display: inline-flex;
   }
   nav {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.25rem 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.2);
+  }
+  nav[data-open="false"] {
+    display: none;
+  }
+  nav[data-open="true"] {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+  }
+  nav button {
+    width: 100%;
+    justify-content: flex-start;
+    margin: 0.25rem 0;
   }
   main#app {
-    padding: 1rem;
+    padding: 1.25rem;
+    width: min(640px, 100%);
   }
+  .panel {
+    padding: clamp(1rem, 3vw + 0.5rem, 1.5rem);
+  }
+  .card-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #toast {
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, 10px);
+  }
+  #toast.show {
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (min-width: 769px) {
+  nav {
+    display: flex !important;
+  }
+  #nav-toggle {
+    display: none;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }

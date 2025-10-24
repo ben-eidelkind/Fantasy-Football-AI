@@ -9,12 +9,50 @@ const state = {
 
 const appEl = document.getElementById('app');
 const toastEl = document.getElementById('toast');
+const navEl = document.getElementById('primary-nav');
+const navToggle = document.getElementById('nav-toggle');
+
+const desktopQuery = window.matchMedia('(min-width: 769px)');
+
+function setNavOpen(open) {
+  if (!navEl) return;
+  navEl.dataset.open = open ? 'true' : 'false';
+  if (navToggle) {
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+}
+
+function closeMobileNav() {
+  if (!navEl) return;
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    setNavOpen(false);
+  }
+}
 
 document.querySelectorAll('nav button[data-nav]').forEach((btn) => {
   btn.addEventListener('click', () => {
     navigate(btn.dataset.nav);
+    closeMobileNav();
   });
 });
+
+if (navToggle && navEl) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navEl.dataset.open === 'true';
+    setNavOpen(!isOpen);
+  });
+}
+
+const syncNavForViewport = (event) => {
+  setNavOpen(event.matches);
+};
+
+syncNavForViewport(desktopQuery);
+if (desktopQuery.addEventListener) {
+  desktopQuery.addEventListener('change', syncNavForViewport);
+} else if (desktopQuery.addListener) {
+  desktopQuery.addListener(syncNavForViewport);
+}
 
 document.getElementById('logout-btn').addEventListener('click', async () => {
   if (!state.token) return;
@@ -25,6 +63,7 @@ document.getElementById('logout-btn').addEventListener('click', async () => {
   state.dashboard = null;
   navigate('onboarding');
   showToast('Signed out');
+  closeMobileNav();
 });
 
 async function initialize() {
@@ -48,6 +87,7 @@ function navigate(view, options = {}) {
   if (options.leagueId) {
     state.currentLeague = options.leagueId;
   }
+  closeMobileNav();
   render();
 }
 
