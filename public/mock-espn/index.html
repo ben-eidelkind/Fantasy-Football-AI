@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mock ESPN Login</title>
+    <style>
+      body { font-family: system-ui, sans-serif; background: #0f172a; color: #f1f5f9; display: grid; place-items: center; height: 100vh; margin: 0; }
+      main { background: rgba(15, 23, 42, 0.9); padding: 2rem; border-radius: 1rem; width: min(420px, 90vw); box-shadow: 0 20px 40px rgba(15, 23, 42, 0.5); }
+      button { background: linear-gradient(120deg, #22d3ee, #6366f1); border: none; padding: 0.75rem 1.5rem; color: #0f172a; border-radius: 999px; font-weight: 600; cursor: pointer; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Mock ESPN authentication</h1>
+      <p>This deterministic provider is used for development and CI. Selecting "Continue" will hand a synthetic access token back to Fantasy Football AI.</p>
+      <button id="continue">Continue</button>
+    </main>
+    <script>
+      document.getElementById('continue').addEventListener('click', () => {
+        const params = new URLSearchParams(window.location.search);
+        const state = params.get('state');
+        if (window.opener) {
+          window.opener.postMessage({ type: 'mock-espn-success', state }, '*');
+        }
+        window.close();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+[
+  {
+    "title": "v1.0.0 \u2013 Foundational release",
+    "body": "Zero-touch onboarding with email codes and demo mode.\nSecure ESPN mock provider with league discovery and activation.\nMulti-league dashboard with matchup odds, lineup optimizer, waiver and trade insights.\nMonte Carlo simulations, waiver scores, trade lab, and playoff outlooks.\nBackground jobs for projections, injuries, and kickoff alerts.\nDeterministic tests (unit, integration, e2e) and CI workflows.",
+    "date": "2024-10-24"
+  }
+]

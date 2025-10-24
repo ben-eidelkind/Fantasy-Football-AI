@@ -1,0 +1,186 @@
+{
+  "leagues": [
+    {
+      "id": "league-001",
+      "espn_league_id": "12345",
+      "season": 2024,
+      "name": "Premier GridIron League",
+      "scoring_type": "PPR",
+      "teams": [
+        {
+          "id": "team-001",
+          "name": "Demo Thunder",
+          "owner_email": "demo@local",
+          "wins": 5,
+          "losses": 2,
+          "ties": 0,
+          "points_for": 812.5,
+          "points_against": 745.2,
+          "playoff_odds": 0.84
+        },
+        {
+          "id": "team-002",
+          "name": "Rival Storm",
+          "owner_email": "rival@local",
+          "wins": 4,
+          "losses": 3,
+          "ties": 0,
+          "points_for": 780.0,
+          "points_against": 769.1,
+          "playoff_odds": 0.55
+        }
+      ],
+      "matchups": [
+        {
+          "id": "matchup-001",
+          "week": 8,
+          "home_team_id": "team-001",
+          "away_team_id": "team-002",
+          "home_score": 112.4,
+          "away_score": 105.7,
+          "kickoff": "2024-10-13T17:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "league-002",
+      "espn_league_id": "98765",
+      "season": 2023,
+      "name": "Legends Keeper League",
+      "scoring_type": "Half-PPR",
+      "teams": [
+        {
+          "id": "team-010",
+          "name": "Demo Dynasty",
+          "owner_email": "demo@local",
+          "wins": 10,
+          "losses": 3,
+          "ties": 0,
+          "points_for": 1625.8,
+          "points_against": 1501.2,
+          "playoff_odds": 0.96
+        },
+        {
+          "id": "team-011",
+          "name": "Perennial Bridesmaids",
+          "owner_email": "friend@local",
+          "wins": 6,
+          "losses": 7,
+          "ties": 0,
+          "points_for": 1504.3,
+          "points_against": 1510.9,
+          "playoff_odds": 0.38
+        }
+      ],
+      "matchups": [
+        {
+          "id": "matchup-010",
+          "week": 15,
+          "home_team_id": "team-010",
+          "away_team_id": "team-011",
+          "home_score": 124.1,
+          "away_score": 117.2,
+          "kickoff": "2023-12-17T18:25:00Z"
+        }
+      ]
+    }
+  ],
+  "players": [
+    {
+      "id": "player-001",
+      "name": "Josh Allen",
+      "position": "QB",
+      "team": "BUF",
+      "bye_week": 13,
+      "injury_status": "ACTIVE"
+    },
+    {
+      "id": "player-002",
+      "name": "Christian McCaffrey",
+      "position": "RB",
+      "team": "SF",
+      "bye_week": 9,
+      "injury_status": "ACTIVE"
+    },
+    {
+      "id": "player-003",
+      "name": "CeeDee Lamb",
+      "position": "WR",
+      "team": "DAL",
+      "bye_week": 7,
+      "injury_status": "ACTIVE"
+    },
+    {
+      "id": "player-004",
+      "name": "Travis Kelce",
+      "position": "TE",
+      "team": "KC",
+      "bye_week": 10,
+      "injury_status": "QUESTIONABLE"
+    },
+    {
+      "id": "player-005",
+      "name": "Amon-Ra St. Brown",
+      "position": "WR",
+      "team": "DET",
+      "bye_week": 5,
+      "injury_status": "ACTIVE"
+    },
+    {
+      "id": "player-006",
+      "name": "Bijan Robinson",
+      "position": "RB",
+      "team": "ATL",
+      "bye_week": 11,
+      "injury_status": "ACTIVE"
+    },
+    {
+      "id": "player-007",
+      "name": "Jalen Hurts",
+      "position": "QB",
+      "team": "PHI",
+      "bye_week": 10,
+      "injury_status": "ACTIVE"
+    },
+    {
+      "id": "player-008",
+      "name": "Garrett Wilson",
+      "position": "WR",
+      "team": "NYJ",
+      "bye_week": 12,
+      "injury_status": "ACTIVE"
+    },
+    {
+      "id": "player-009",
+      "name": "Mark Andrews",
+      "position": "TE",
+      "team": "BAL",
+      "bye_week": 13,
+      "injury_status": "ACTIVE"
+    },
+    {
+      "id": "player-010",
+      "name": "Tony Pollard",
+      "position": "RB",
+      "team": "DAL",
+      "bye_week": 7,
+      "injury_status": "ACTIVE"
+    },
+    {
+      "id": "player-011",
+      "name": "Jaylen Waddle",
+      "position": "WR",
+      "team": "MIA",
+      "bye_week": 10,
+      "injury_status": "ACTIVE"
+    },
+    {
+      "id": "player-012",
+      "name": "Tua Tagovailoa",
+      "position": "QB",
+      "team": "MIA",
+      "bye_week": 10,
+      "injury_status": "ACTIVE"
+    }
+  ]
+}
