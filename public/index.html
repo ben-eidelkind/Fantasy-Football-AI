@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fantasy Football AI</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <div class="brand">Fantasy Football AI</div>
+      <nav>
+        <button data-nav="onboarding">Onboarding</button>
+        <button data-nav="dashboard">Dashboard</button>
+        <button data-nav="trade-lab">Trade Lab</button>
+        <button data-nav="settings">Settings</button>
+        <button data-nav="whats-new">What's New</button>
+        <button id="logout-btn" class="secondary">Sign out</button>
+      </nav>
+    </header>
+    <main id="app"></main>
+    <template id="onboarding-template">
+      <section class="panel">
+        <h1>Welcome to zero-touch onboarding</h1>
+        <ol class="steps">
+          <li><strong>Sign in</strong> with your email code.</li>
+          <li><strong>Connect ESPN</strong> via secure session.</li>
+          <li><strong>Discover leagues</strong> across seasons.</li>
+          <li><strong>Activate</strong> the leagues you care about.</li>
+          <li>Jump to the dashboard with personalized insights.</li>
+        </ol>
+        <div class="grid auth-grid">
+          <div>
+            <h2>Email Sign-in</h2>
+            <label>Email</label>
+            <input id="login-email" type="email" placeholder="you@example.com" />
+            <button id="login-request">Send Code</button>
+            <div id="login-code-container" hidden>
+              <label>Enter Code</label>
+              <input id="login-code" type="text" inputmode="numeric" maxlength="6" />
+              <button id="login-verify">Verify &amp; Continue</button>
+              <p class="hint" id="login-hint"></p>
+            </div>
+          </div>
+          <div>
+            <h2>Or explore Demo Mode</h2>
+            <p>Instantly load seeded leagues, projections, and analytics.</p>
+            <button id="demo-login" class="primary">Launch Demo</button>
+          </div>
+        </div>
+        <div class="panel" id="espn-connection" hidden>
+          <h2>Connect ESPN</h2>
+          <p>Authenticate securely in a pop-out window. We only store the session needed to read leagues you can already access.</p>
+          <button id="connect-espn">Sign in to ESPN</button>
+          <button id="sync-leagues" class="secondary">Discover Leagues</button>
+          <div id="league-selection"></div>
+        </div>
+      </section>
+    </template>
+    <template id="dashboard-template">
+      <section class="panel">
+        <h1>Multi-league dashboard</h1>
+        <div id="dashboard-cards" class="card-grid"></div>
+      </section>
+    </template>
+    <template id="trade-lab-template">
+      <section class="panel">
+        <h1>Trade Lab</h1>
+        <div class="panel" id="trade-results"></div>
+      </section>
+    </template>
+    <template id="settings-template">
+      <section class="panel">
+        <h1>Settings &amp; Privacy</h1>
+        <div class="panel">
+          <h2>Feature flags</h2>
+          <div id="feature-flags"></div>
+        </div>
+        <div class="panel">
+          <h2>ESPN Connection</h2>
+          <p>Reconnect or revoke access any time.</p>
+          <button id="reconnect-espn">Reconnect</button>
+        </div>
+        <div class="panel">
+          <h2>Notifications</h2>
+          <div id="notification-list"></div>
+        </div>
+      </section>
+    </template>
+    <template id="whats-new-template">
+      <section class="panel">
+        <h1>Release Notes</h1>
+        <article id="whats-new-content"></article>
+      </section>
+    </template>
+    <template id="league-detail-template">
+      <section class="panel">
+        <h1 id="league-title"></h1>
+        <nav class="tab-bar" role="tablist">
+          <button role="tab" data-tab="overview">Overview</button>
+          <button role="tab" data-tab="roster">Roster</button>
+          <button role="tab" data-tab="waivers">Waivers</button>
+          <button role="tab" data-tab="trades">Trades</button>
+          <button role="tab" data-tab="schedule">Schedule &amp; Playoffs</button>
+        </nav>
+        <section id="league-content"></section>
+      </section>
+    </template>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
